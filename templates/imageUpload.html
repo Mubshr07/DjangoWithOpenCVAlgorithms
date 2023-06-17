@@ -1,0 +1,82 @@
+
+{% extends "base.html" %}
+
+  {% block "content" %}
+  </br> 
+
+<div class="w-50 p-3 mw-75 mx-auto border border-primary ">
+<form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+
+  Select image to upload: 
+  </br> </br> 
+  {{ imageUploadingForm }}
+  </br> 
+  <input type="submit" value="Convert Images" name="submit">
+
+</form>
+</div>
+
+
+
+<div class="w-75 mw-75 mx-auto">
+  </br> 
+
+<p>url: {{ fileUploadList }} </p>
+
+
+      <img width='{{imageSize}}px' height='{{imageSize}}px' src = "{{ fileUploadList }}"  /> 
+
+
+</br> </br>
+<p> Resized Image </p>
+<p> {{ fileUpload }} </p>
+
+
+</br> </br>
+<p> Gray Scale Image </p>
+      <img class="border border-primary" width='{{imageSize}}px' height='{{imageSize}}px' src = "{{ grayScale }}"  /> 
+
+
+</br> </br>
+<p> Blur Image </p>
+      <img class="border border-primary" width='{{imageSize}}px' height='{{imageSize}}px' src = "{{blurImage}}"  /> 
+
+</br> </br>
+<p> Edge Detection using Canny Image </p>
+      <img class="border border-primary" width='{{imageSize}}px' height='{{imageSize}}px' src = "{{cannyEdgeDetection}}"  /> 
+
+</br> </br>
+<p> Image Threshold </p>
+      <img class="border border-primary" width='{{imageSize}}px' height='{{imageSize}}px' src = "{{thresholdImage}}"  /> 
+
+
+</br> </br>
+<p> Image Dilation </p>
+      <img class="border border-primary" width='{{imageSize}}px' height='{{imageSize}}px' src = "{{DilationImage}}"  /> 
+
+</br> </br>
+<p> Image Erosion </p>
+      <img class="border border-primary" width='{{imageSize}}px' height='{{imageSize}}px' src = "{{erosionImage}}"  /> 
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+{% endblock %}
+  

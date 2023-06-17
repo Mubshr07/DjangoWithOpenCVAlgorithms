@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+  {% block "content" %}
+
+
+<h2>Django Contact Us Forms</h2>
+
+<div class="w-50 p-3 mw-75 mx-auto">
+<form  method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+   </br> </br> 
+   
+   <div class="form-floating mb-3">
+    {{ form }}
+   </div>
+  
+  </br> 
+  <input type="submit" value="Send Suggestions" name="submit">
+
+</form>
+</div>
+<p>{{ fileUpload }} </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+  

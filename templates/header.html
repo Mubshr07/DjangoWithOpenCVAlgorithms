@@ -1,0 +1,71 @@
+ 
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+   <!--   <title>Mubashir Iqbal Gurmani</title>-->
+   <title> {{title}} </title>
+
+    <meta name="description" content="A freelancer with professional skills in C++, Qt C++ Framework, PHP, HTML5, CSS3, JavaScript." />
+    <meta name="author" content="Mubashir Iqbal Gurmani" />
+    
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+
+    <script>
+      $(function () {
+        $(".meter > span").each(function () {
+          $(this)
+            .data("origWidth", $(this).width())
+            .width(0)
+            .animate(
+              {
+                width: $(this).data("origWidth"),
+              },
+              1200
+            );
+        });
+      });
+    </script>
+    <link rel="stylesheet" href="/static/customStyles.css" />
+    <link rel="stylesheet" href="/static/css/bootstrap.css" />
+    
+
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="logo">
+        <!-- <a href="https://www.mubashiriqbal07.com"> -->
+          <a href="{% url 'home' %}">
+          <img
+            src="/static/img/mylogo.png"
+            alt="Mubashir Iqbal 07 Site logo"
+          />
+          <div class="siteName">
+            <div class="sitetitle">Muabshir Iqbal Gurmani</div>
+            <div class="sitedesc">Web & Desktop Apps Developer</div>
+          </div>
+        </a>
+      </div>
+      <div class="headerlinks">
+        <ul>
+          <li class="myblog">
+            <!-- <a href="https://www.mubashiriqbal07.com/myblog">My Blog</a> -->
+            <a href="{% url 'imageUpload' %}">Open CV</a>
+          </li> 
+          <li class="message"><a href="mailto:mubshr07@gmail.com">Send message</a></li>
+          <li class="message"><a href="tel:+923185099232">Call</a></li>
+        </ul>
+      </div>
+    </div>
+
+    
