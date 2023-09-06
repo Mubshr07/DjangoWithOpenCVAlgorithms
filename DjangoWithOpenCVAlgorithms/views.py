@@ -11,6 +11,9 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as mplot 
 
+from tensorflow.keras.utils import load_img
+from keras.models import load_model 
+import keras.utils as imageKeras
 
 from .models import openCVimages
 
@@ -72,6 +75,28 @@ def imageUpload(request):
             resized = cv2.resize(img, (new_width, new_height)) 
             img = resized
             '''
+
+            model = load_model("E:\pythonProject\DjangoWithOpenCVAlgorithms\DjangoWithOpenCVAlgorithms\cats&dog.h5")
+
+            test_image = load_img(readFilePath, target_size=(64, 64))
+
+            test_image = imageKeras.img_to_array(test_image)
+            test_image = np.expand_dims(test_image, axis=0)
+            result = model.predict(test_image)
+                        
+            data['DogDetected'] = ""
+
+            if result[0][0] == 1:
+                data['DogDetected'] = "Yes uploaded Image has Dog."
+                data['DogDetectedYes'] = True
+                print("DOG Predicted.")
+            else:
+                data['DogDetected'] = "No, not a Dog."
+                data['DogDetectedYes'] = False
+                print("Fail to predict the DOG")
+
+
+
             grayScaleURL =  "/media/uploads/grayScale.png"
             grayScaleImagePath =  dirPath + grayScaleURL
             print(grayScaleImagePath)
